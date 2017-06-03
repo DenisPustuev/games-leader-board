@@ -1,0 +1,153 @@
+.leaders-list {
+  width: 341px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 6px 7px 0;
+  position: relative;
+
+  &.wide {
+    width: 100%;
+  }
+
+  @include adaptive-styles($mobile-screen-break-point){
+    width: 100%;
+    padding-left: 0;
+
+    &__wrap {
+      width: 100% !important;
+    }
+  }
+
+  .track-vertical {
+    display: none; //hide vertical track on wide screen
+  }
+}
+
+.leader-card {
+  display: inline-block;
+  border-right: 1px solid #ffffff;
+  height: 152px;
+  width: 112px;
+  position: relative;
+
+  &:nth-child(odd) {
+    background: #e2e1e1;
+  }
+
+  @include adaptive-styles($mobile-screen-break-point){
+    width: 100%;
+    height: 94px;
+    display: block;
+  }
+
+  &__place {
+    position: absolute;
+    left: 1px;
+    top: 4px;
+    border: 1px solid $main-theme-color;
+    text-align: right;
+    width: 28px;
+    padding-right: 3px;
+    border-radius: 2px;
+    letter-spacing: -1px;
+
+    .first-place &,
+    .second-place &,
+    .third-place &{
+      color: #fe5400;
+    }
+
+    @include adaptive-styles($mobile-screen-break-point){
+      top: 0;
+      left: 0;
+      border-left: none;
+    }
+  }
+
+  &__img{ // card image
+    position: relative;
+    margin-left: 29px;
+    margin-top: 5px;
+    height: 78px;
+    width: 78px;
+    background: #70d7fd;
+    border-radius: 50%;
+    z-index: 2;
+
+    @include adaptive-styles($mobile-screen-break-point){
+      float: left;
+      margin-top: 9px;
+    }
+
+    img {
+      height: 73px;
+      width: 73px;
+      margin-left: 2px;
+      margin-top: 4px;
+      border-radius: 50%;
+      background: #fff; //for svg leader files, can be removed
+    }
+  }
+
+  &__medal {
+    position: absolute;
+    top: 59px;
+    left: 1px;
+    width: 30px;
+    height: 28px;
+
+    .first-place & {
+      background: url("../images/gold-star.png") no-repeat;
+    }
+
+    .second-place & {
+      background: url("../images/silver-star.png") no-repeat;
+    }
+
+    .third-place & {
+      background: url("../images/bronze-star.png") no-repeat;
+    }
+
+    @include adaptive-styles($mobile-screen-break-point){
+      top: 15px;
+      right: 13px;
+      left: auto;
+    }
+  }
+
+  &__name {
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    height: 31px;
+    overflow: hidden;
+    text-transform: uppercase;
+
+    @include adaptive-styles($mobile-screen-break-point){
+      float: left;
+      text-align: left;
+      margin-left: 6px;
+      margin-top: 20px;
+      font-size: 18px;
+      height: 38px;
+    }
+  }
+
+  &__score {
+    height: 22px;
+    line-height: 22px;
+    font-size: 18px;
+    color: #1e1e1e;
+    text-align: center;
+    background: #70d7fd;
+    z-index: 1;
+
+    @include adaptive-styles($mobile-screen-break-point){
+      position: absolute;
+      bottom: 10px;
+      left: 70px;
+      width: calc(100% - 70px);
+    }
+  }
+} // leader card

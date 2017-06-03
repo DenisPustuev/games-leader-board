@@ -1,0 +1,8 @@
+@mixin adaptive-styles($screen-size) {
+  @media only screen and (max-width: $screen-size) { @content; }
+}
+
+//Variables
+$mobile-screen-break-point: 599px;
+
+$main-theme-color: #e56d48;
